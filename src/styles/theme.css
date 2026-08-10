@@ -1,0 +1,85 @@
+/* ============================================================
+   THEME TOKENS
+   A dark, "circuit-lit" tech palette for a developer portfolio.
+   Every color/spacing/type decision in the app traces back here.
+   ============================================================ */
+
+:root {
+  /* ---- Surfaces ---- */
+  --bg-void: #0a0e14;          /* page background */
+  --bg-surface: #10141c;       /* card / panel background */
+  --bg-surface-alt: #161b26;   /* raised panel / hover surface */
+  --bg-surface-glass: rgba(16, 20, 28, 0.6);
+
+  /* ---- Borders ---- */
+  --border-hairline: #1f2530;
+  --border-hairline-soft: #232a38;
+
+  /* ---- Text ---- */
+  --text-primary: #e8edf4;
+  --text-secondary: #a7b0bf;
+  --text-muted: #6b7484;
+
+  /* ---- Accent: electric cyan (primary signal) ---- */
+  --accent-cyan: #4cc9f0;
+  --accent-cyan-soft: rgba(76, 201, 240, 0.14);
+  --accent-cyan-glow: rgba(76, 201, 240, 0.45);
+
+  /* ---- Accent: violet (secondary signal, used sparingly) ---- */
+  --accent-violet: #7b61ff;
+  --accent-violet-soft: rgba(123, 97, 255, 0.14);
+
+  /* ---- Accent: amber (rare highlight / status) ---- */
+  --accent-amber: #ffb454;
+
+  /* ---- Gradients ---- */
+  --gradient-signal: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-violet) 100%);
+  --gradient-mesh:
+    radial-gradient(circle at 15% 20%, rgba(76, 201, 240, 0.10) 0%, transparent 45%),
+    radial-gradient(circle at 85% 10%, rgba(123, 97, 255, 0.10) 0%, transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(76, 201, 240, 0.06) 0%, transparent 50%);
+
+  /* ---- Typography ---- */
+  --font-display: "Space Grotesk", "Sora", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "IBM Plex Mono", "JetBrains Mono", monospace;
+
+  --fs-eyebrow: 0.75rem;
+  --fs-body: 1rem;
+  --fs-lead: 1.125rem;
+  --fs-h3: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem);
+  --fs-h2: clamp(1.75rem, 1.4rem + 1.6vw, 2.75rem);
+  --fs-h1: clamp(2.5rem, 1.9rem + 3vw, 4.25rem);
+
+  --lh-tight: 1.1;
+  --lh-normal: 1.6;
+
+  /* ---- Spacing scale ---- */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6.5rem;
+
+  /* ---- Radius ---- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* ---- Motion ---- */
+  --ease-signal: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 180ms;
+  --dur-med: 420ms;
+
+  /* ---- Layout ---- */
+  --content-max: 1180px;
+  --header-height: 76px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-med: 0ms;
+  }
+}
