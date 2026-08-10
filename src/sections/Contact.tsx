@@ -1,5 +1,6 @@
 import { Form, Input, message } from "antd";
 import { MailOutlined, EnvironmentOutlined } from "@ant-design/icons";
+
 import SectionWrapper from "../components/SectionWrapper";
 import Button from "../components/Button";
 
@@ -31,11 +32,11 @@ export default function Contact() {
           </p>
           <div className="contact-detail-row">
             <MailOutlined />
-            <span>you@example.com</span>
+            <span>mjhermac@ndkc.edu.ph</span>
           </div>
           <div className="contact-detail-row">
             <EnvironmentOutlined />
-            <span>Your City, Country</span>
+            <span>Kipawan City, Philippines</span>
           </div>
         </div>
 
