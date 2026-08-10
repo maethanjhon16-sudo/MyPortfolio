@@ -1,4 +1,4 @@
-import { GithubOutlined, LinkedinOutlined, TwitterOutlined, MailOutlined, FacebookOutlined } from "@ant-design/icons";
+import { GithubOutlined, LinkedinOutlined, MailOutlined, FacebookOutlined } from "@ant-design/icons";
 import type { ComponentType } from "react";
 
 export interface SocialLink {
