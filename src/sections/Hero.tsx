@@ -41,7 +41,7 @@ export default function Hero() {
         <div className="hero-visual">
           <div className="hero-visual-ring" aria-hidden />
           <div className="hero-visual-frame">
-            <img src={profile} alt="Portrait of Your Name" />
+            <img src={profile} alt="Portrait of Me" />
           </div>
         </div>
       </div>
