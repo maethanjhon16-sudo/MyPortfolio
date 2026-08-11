@@ -7,6 +7,7 @@ const NAV_ITEMS = [
   { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
+  { href: "#certification", label: "Certification" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -14,23 +15,41 @@ export default function Header() {
   const [activeHash, setActiveHash] = useState("#hero");
 
   useEffect(() => {
-    const sections = NAV_ITEMS.map((item) => document.querySelector(item.href)).filter(
-      (el): el is Element => Boolean(el)
-    );
+    const getSections = () =>
+      NAV_ITEMS.map((item) => document.querySelector(item.href)).filter(
+        (el): el is Element => Boolean(el)
+      );
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveHash(`#${entry.target.id}`);
-          }
-        });
-      },
-      { rootMargin: "-40% 0px -50% 0px" }
-    );
+    const updateActiveHash = () => {
+      const sections = getSections();
+      if (sections.length === 0) return;
 
-    sections.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+      const scrollPosition = window.scrollY + window.innerHeight * 0.25;
+
+      const nearest = sections.reduce(
+        (closest, section) => {
+          const top = section.getBoundingClientRect().top + window.scrollY;
+          return Math.abs(top - scrollPosition) < Math.abs(closest.top - scrollPosition)
+            ? { section, top }
+            : closest;
+        },
+        {
+          section: sections[0],
+          top: sections[0].getBoundingClientRect().top + window.scrollY,
+        }
+      );
+
+      setActiveHash(`#${nearest.section.id}`);
+    };
+
+    updateActiveHash();
+    window.addEventListener("scroll", updateActiveHash, { passive: true });
+    window.addEventListener("resize", updateActiveHash);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveHash);
+      window.removeEventListener("resize", updateActiveHash);
+    };
   }, []);
 
   const renderLinks = () => (

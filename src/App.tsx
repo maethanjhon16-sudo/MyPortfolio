@@ -7,6 +7,7 @@ import Skills from "./sections/Skills";
 import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
+import Certification from "./sections/Certification";
 
 // Keep these tokens in sync with the CSS custom properties in
 // src/styles/theme.css so antd's own components (Form, Timeline,
@@ -37,6 +38,7 @@ export default function App() {
           <Skills />
           <Experience />
           <Projects />
+          <Certification/>
           <Contact />
         </main>
         <Footer />
